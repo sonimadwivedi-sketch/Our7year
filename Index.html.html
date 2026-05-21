@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Journey of Us: For Swayam, with Love from Sonima 💖</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Parisienne&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --soft-pink: #fce4ec;
+            --deep-pink: #ad1457;
+            --gold: #d4af37;
+            --cream: #fffaf0;
+            --rose-gold: #b76e79;
+        }
+
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--soft-pink);
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* --- BACKGROUND DECOR --- */
+        .bg-decor {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .floating-heart {
+            position: absolute;
+            color: rgba(255, 105, 180, 0.25);
+            font-size: 24px;
+            animation: float 8s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(110vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* --- ENTRY SCREEN GATEWAY --- */
+        #gateway {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: radial-gradient(circle, #fff0f5 0%, var(--soft-pink) 100%);
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 1s ease-out;
+            border: 10px solid var(--gold);
+        }
+
+        .gateway-card {
+            text-align: center;
+            padding: 40px;
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 15px 50px rgba(173, 20, 87, 0.15);
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            max-width: 500px;
+            width: 90%;
+        }
+
+        .gateway-card h1 {
+            font-family: 'Parisienne', cursive;
+            color: var(--deep-pink);
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+        }
+
+        .gateway-card p {
+            color: var(--rose-gold);
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .enter-btn {
+            background: linear-gradient(45deg, var(--deep-pink), #e91e63);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(233, 30, 99, 0.4);
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .enter-btn:hover {
+            transform: scale(1.08);
+            box-shadow: 0 8px 25px rgba(233, 30, 99, 0.6);
+            background: linear-gradient(45deg, #e91e63, var(--deep-pink));
+        }
+
+        /* --- HERO HEADER --- */
+        .hero {
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(252, 228, 236, 0.8), rgba(252, 228, 236, 0.75));
+            border-bottom: 5px solid var(--gold);
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-family: 'Parisienne', cursive;
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            color: var(--deep-pink);
+            margin: 0;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .hero p {
+            font-size: 1.6rem;
+            color: var(--gold);
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            margin-top: 10px;
+        }
+
+        /* --- TIMELINE --- */
+        .section-title {
+            text-align: center;
+            font-family: 'Parisienne', cursive;
+            font-size: clamp(3rem, 6vw, 4.5rem);
+            color: var(--deep-pink);
+            padding: 80px 20px 20px;
+            margin: 0;
+        }
+
+        .timeline-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .year-block {
+            display: flex;
+            margin-bottom: 120px;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .year-block:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .year-text {
+            flex: 1.2;
+            background: white;
+            padding: 35px;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(173, 20, 87, 0.05);
+            border-left: 6px solid var(--gold);
+        }
+
+        .year-block:nth-child(even) .year-text {
+            border-left: none;
+            border-right: 6px solid var(--gold);
+        }
+
+        .year-text h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            color: var(--deep-pink);
+            margin: 0 0 10px 0;
+        }
+
+        .year-text h3 {
+            color: var(--rose-gold);
+            margin-top: 0;
+            font-weight: 600;
+            font-size: 1.3rem;
+        }
+
+        .year-text p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #555;
+            margin: 0;
+        }
+
+        .year-images-grid {
+            flex: 1;
+            display: grid;
+            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        }
+
+        .img-card {
+            background: white;
+            padding: 8px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+        }
+
+        .img-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .img-card:hover {
+            transform: scale(1.08) rotate(3deg);
+            box-shadow: 0 15px 30px rgba(173, 20, 87, 0.15);
+        }
+
+        /* --- QUIZ SECTION --- */
+        .quiz-section {
+            background-color: var(--cream);
+            padding: 100px 20px;
+            border-top: 5px solid var(--gold);
+            border-bottom: 5px solid var(--gold);
+        }
+
+        .quiz-card {
+            max-width: 750px;
+            margin: 0 auto;
+            background: white;
+            padding: 50px 40px;
+            border-radius: 35px;
+            box-shadow: 0 20px 50px rgba(173, 20, 87, 0.08);
+            text-align: center;
+            position: relative;
+            min-height: 480px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border: 2px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .quiz-question {
+            font-size: 1.9rem;
+            color: var(--deep-pink);
+            margin-bottom: 35px;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .options-grid {
+            display: grid;
+            gap: 15px;
+            grid-template-columns: 1fr;
+        }
+
+        @media (min-width: 600px) {
+            .options-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        .option-btn {
+            padding: 18px 25px;
+            border: 2px solid var(--soft-pink);
+            border-radius: 20px;
+            background: white;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            color: #444;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .option-btn:hover {
+            background-color: var(--soft-pink);
+            border-color: var(--deep-pink);
+            transform: translateY(-2px);
+        }
+
+        #feedback-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 35px;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-size: 6rem;
+            background: rgba(255, 255, 255, 0.95);
+            z-index: 10;
+            animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .feedback-text {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-top: 15px;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        @keyframes popIn {
+            0% { transform: scale(0.7); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* --- LETTER SECTION --- */
+        .letter-section {
+            padding: 100px 20px;
+            background: linear-gradient(to bottom, var(--soft-pink), #fff5f7);
+        }
+
+        .letter-paper {
+            max-width: 850px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 60px 50px;
+            border-radius: 4px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.15rem;
+            line-height: 1.8;
+            text-align: left;
+            border-left: 15px solid var(--gold);
+            position: relative;
+            color: #444;
+        }
+
+        .letter-paper h3 {
+            font-family: 'Parisienne', cursive;
+            font-size: 3rem;
+            color: var(--deep-pink);
+            margin-top: 0;
+        }
+
+        .promise-list {
+            margin-top: 30px;
+            list-style: none;
+            padding: 0;
+        }
+
+        .promise-list li {
+            margin-bottom: 20px;
+            padding-left: 45px;
+            position: relative;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .promise-list li i {
+            position: absolute;
+            left: 5px;
+            top: 4px;
+            color: var(--deep-pink);
+            font-size: 1.4rem;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            padding: 60px 20px;
+            text-align: center;
+            background-color: var(--deep-pink);
+            color: white;
+            border-top: 4px solid var(--gold);
+        }
+
+        .heart-icon {
+            color: #ff4081;
+            animation: heartBeat 1.2s infinite;
+            display: inline-block;
+        }
+
+        @keyframes heartBeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+        }
+
+        .confetti {
+            position: fixed;
+            width: 12px;
+            height: 12px;
+            z-index: 1000;
+            pointer-events: none;
+            border-radius: 50%;
+        }
+
+        /* --- AUDIO BUTTON CONTROL --- */
+        .audio-ctrl {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: white;
+            border: 2px solid var(--gold);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 999;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            color: var(--deep-pink);
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <iframe id="audioTrack" width="0" height="0" src="" frameborder="0" allow="autoplay"></iframe>
+
+    <div class="audio-ctrl" onclick="toggleMusic()" id="musicNode" style="display: none;">
+        <i class="fa-solid fa-volume-high"></i>
+    </div>
+
+    <div id="gateway">
+        <div class="gateway-card">
+            <h1>Hey Senior Harami... 👑</h1>
+            <p>Sonima has built an interactive gateway to your last 7 years. Are you ready to see it?</p>
+            <button class="enter-btn" onclick="unlockWebsite()">Unlock Our 7 Years 👑</button>
+        </div>
+    </div>
+
+    <div class="bg-decor" id="bgDecor"></div>
+
+    <section class="hero">
+        <h1>A Journey of Us</h1>
+        <p>For Swayam, with Love from Sonima ✨</p>
+    </section>
+
+    <h2 class="section-title">Every Milestone, Year by Year</h2>
+    <section class="timeline-container">
+        
+        <div class="year-block">
+            <div class="year-text">
+                <h2>2019</h2>
+                <h3>The Start of Our Young Love 🌱</h3>
+                <p>Our magical beginning. From movie dates to simple joys, this is where our hearts linked and we began our beautiful chapter together.</p>
+            </div>
+            <div class="year-images-grid">
+                <div class="img-card"><img src="https://docs.google.com/uc?export=view&id=1Q8_oJ82NP79dGXEQiuWCqRuvqGaucxwv" alt="2019 Memory 1"></div>
+                <div class="img-card"><img src="https://docs.google.com/uc?export=view&id=1fNjXcnYUwdD2oLO-2TNBESP2ntITIStT" alt="2019 Memory 2"></div>
+            </div>
+        </div>
+
+        <div class="year-block">
+            <div class="year-text">
+                <h2>2020</h2>
+                <h3>The Year of Cycling 🚲</h3>
+                <p>Even when lockdowns swept the world, we found our own escapes. Long cycling tracks, making Bal Bhawan our top location, and laughing through it all.</p>
+            </div>
+            <div class="year-images-grid">
+                <div class="img-card"><img src="https://docs.google.com/uc?export=view&id=15je0-ht--pN1BqG4b6NFP1V1yljvw9JU" alt="2020 Memory 1"></div>
+                <div class="img-card"><img src="https://docs.google.com/uc?export=view&id=1P_x9l8JdwoKr-j97_PSfJyDuegxtKIi5" alt="2020 Memory 2"></div>
+            </div>
+        </div>
+
+        <div class="year-block">
+            <div class="year-text">
+                <h2>2021</h2>
+                <h3>Loving Year of Closeness 💕</h3>
+                <p>A beautiful year of deep emotional closeness, endless support, and understanding each other more perfectly than anyone else ever could.</p>
+            </div>
+            <div class="year-images-grid">
+                <div class="img-card"><img src="https://docs.google.com/uc?export=view&id=1P_x9l8JdwoKr-j97_PSfJyDuegxtKIi5" alt="2021 Memory 1"></div>
+                <div class="img-card"><img src="https://docs.google.com/uc?export=view&id=14XU9xc2HrP0taZQjUeCq-9qmwyb2fqc9" alt="2021 Memory 2"></div>
+            </div>
+        </div>
+
+        <div class="year-block">
+            <div class="year-text">
+                <h2>2022</h2>
+                <h3>Our First Garba Performance 💃🕺</h3>
+                <p>Matching dynamic vibes and steps! Performing Garba together on stage was an unforgettable memory packed with color, cheer, and pure pride.</p>
+            </div>
+            <div class="year-images-grid">
+                <div class="img-card"><img src="https://docs.google.com/uc?export=view&id=1jO10oaZRp3OukSSlw82CWo4NXDW8MwMG" alt="2022 Memory 1"></div>
+                <div class="img-card"><img src="https://docs.google.com/uc?export=view&id=1kF9_eBpV3LHPStpms-ooQvcR2KUEBDV5" alt="2022 Memory 2"></div>
+            </div>
+        </div>
+
+        <div class="year-block">
+            <div class="year-text">
+                <h2>2023</h2>
+                <h3>Birthday Dates & Booming Love🎂</h3>
+                <p>A glorious milestone year celebrating our special dates, birthdays, and witnessing our love booming into an unbreakable shield.</p>
+            </div>
+            <div class="year-images-grid">
+                <div class="img-card"><img src="https://docs.google.com/uc?export=view&id=14XU9xc2HrP0taZQjUeCq-9qmwyb2fqc9" alt="2023 Memory 1"></div>
+                <div class="img-card"><img src="https://docs.google.com/uc?export=view&id=1eFoajDsm0HXCUqO47b0vGm1ynf-T4XBX" alt="2023 Memory 2"></div>
+            </div>
+        </div>
+
+        <div class="year-block">
+            <div class="year-text">
+                <h2>2024</h2>
+                <h3>Our First Trip, Stay & Club Night ✈️🥂</h3>
+                <p>Expanding horizons! From our highly anticipated first out-of-town trip to dancing all night at the clubs, we checked off huge relationship milestones.</p>
+            </div>
+            <div class="year-images-grid">
+                <div class="img-card"><img src="https://docs.google.com/uc?export=view&id=1rbFhrBv9VtVrJ8GEx5WMGaQiaB5Tk0Aj" alt="2024 Memory 1"></div>
+                <div class="img-card"><img src="https://docs.google.com/uc?export=view&id=1AaUQAS9CFBj9j-z9JtJ6JugIJXPnx08P" alt="2024 Memory 2"></div>
+            </div>
+        </div>
+
+        <div class="year-block">
+            <div class="year-text">
+                <h2>2025</h2>
+                <h3>Growing Up & Husband-Wife Coded 🏡</h3>
+                <p>A transformative year focusing on business development, hard bodybuilding goals, personal growth, and matching entirely like a perfect husband-and-wife team.</p>
+            </div>
+            <div class="year-images-grid">
+                <div class="img-card"><img src="https://docs.google.com/uc?export=view&id=1Ymumcn0bgca0vDSWPdXn8k_gd4e-mb74" alt="2025 Memory 1"></div>
+                <div class="img-card"><img src="https://docs.google.com/uc?export=view&id=1vYCPYvbXZ2qlY0iXFABSBt4fO1hVpHDf" alt="2025 Memory 2"></div>
+                <div class="img-card"><img src="https://docs.google.com/uc?export=view&id=1ZCw1dd0b9eLgXLnwfqAcxLIpcyHnzP4W" alt="2025 Memory 3"></div>
+                <div class="img-card"><img src="https://docs.google.com/uc?export=view&id=1_bJXprXZ0QkSWLvoE5E1qxyE2An3vHcQ" alt="2025 Memory 4"></div>
+            </div>
+        </div>
+
+        <div class="year-block">
+            <div class="year-text">
+                <h2>2026</h2>
+                <h3>Our Big Trip & 7 Complete Years 🎉</h3>
+                <p>Seven spectacular years down! Celebrating our growth from teenagers to goal-driven adults with a marvelous holiday trip together.</p>
+            </div>
+            <div class="year-images-grid">
+                <div class="img-card"><img src="https://docs.google.com/uc?export=view&id=1M_K2goRp9B9j-pyDCRIIXOFXX7AT7u5Y" alt="2026 Memory 1"></div>
+                <div class="img-card"><img src="https://docs.google.com/uc?export=view&id=1bFHwpA0WqvK-w5ioMNwzwn7g0CqJahGc" alt="2026 Memory 2"></div>
+                <div class="img-card"><img src="https://docs.google.com/uc?export=view&id=1NgqvCTWVvJa43fJ_NbPDhLndKXd_Xvqo" alt="2026 Memory 3"></div>
+                <div class="img-card"><img src="https://docs.google.com/uc?export=view&id=1OsU_HR1Nk5Wa_k9oHevOKuUOZladohh0" alt="2026 Memory 4"></div>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="quiz-section">
+        <h2 class="section-title" style="padding-top:0">7 Questions for 7 Years! 🧐</h2>
+        <div class="quiz-card" id="quizCard">
+            <div id="quiz-content">
+                <div class="quiz-question" id="questionText">Loading Question...</div>
+                <div class="options-grid" id="optionsContainer"></div>
+            </div>
+            <div id="feedback-overlay">
+                <span id="feedbackEmoji"></span>
+                <span class="feedback-text" id="feedbackMessage"></span>
+            </div>
+        </div>
+    </section>
+
+    <section class="letter-section">
+        <div class="letter-paper">
+            <h3>Dear Swayam,</h3>
+            <p>Happy 7th Anniversary to us ❤️❤️ I LOVE YOU from the depth of my heart, oh wait, you are my heart it’s basically made up of you 💓💓🥰🥰.</p>
+            <p>Seven years is a really big milestone for a relationship. Looking back at how young we started and how beautifully we grew together—studying, building our personalities, bodybuilding, and helping each other sort out our career choices and motivating each other toward its achievements is what makes us special 🥺🥺🥺💝💝💝.</p>
+            
+            <p style="margin-top: 30px; font-weight: 600; color: var(--deep-pink); font-size: 1.3rem;">I promise you 7 things:</p>
+            <ul class="promise-list">
+                <li><i class="fa-solid fa-heart-pulse"></i> To be with you in thick and thin.</li>
+                <li><i class="fa-solid fa-face-laugh-wink"></i> To dance for you to make you giggle.</li>
+                <li><i class="fa-solid fa-gift"></i> Always surprise you with lovely things.</li>
+                <li><i class="fa-solid fa-paper-plane"></i> Express my love and ensure it reaches you.</li>
+                <li><i class="fa-solid fa-trophy"></i> To support you in everything you do and ensure your win.</li>
+                <li><i class="fa-solid fa-shield-heart"></i> To let any negativity not come to you and remove it from our lives.</li>
+                <li><i class="fa-solid fa-sparkles"></i> To fill our lives with love, laughter, and good health.</li>
+            </ul>
+            <p style="text-align: right; margin-top: 50px; font-family: 'Dancing Script', cursive; font-size: 2.2rem; color: var(--deep-pink);">Forever Yours,<br>Sonima</p>
+        </div>
+    </section>
+
+    <footer>
+        <h3>Happy 7th Anniversary, Swayam! 🥂</h3>
+        <p>Crafted beautifully with <i class="fa-solid fa-heart heart-icon"></i> by Sonima</p>
+    </footer>
+
+    <script>
+        let musicPlaying = false;
+        const audioFrame = document.getElementById('audioTrack');
+
+        function unlockWebsite() {
+            document.getElementById('gateway').style.opacity = '0';
+            setTimeout(() => {
+                document.getElementById('gateway').style.display = 'none';
+            }, 1000);
+            
+            // Starts acoustic instrumental love music track
+            audioFrame.src = "https://www.youtube.com/embed/2Vv-BfVoq4g?autoplay=1&loop=1&playlist=2Vv-BfVoq4g";
+            musicPlaying = true;
+            document.getElementById('musicNode').style.display = 'flex';
+            createConfetti(50);
+        }
+
+        function toggleMusic() {
+            const ctrl = document.getElementById('musicNode');
+            if(musicPlaying) {
+                audioFrame.src = "";
+                ctrl.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
+                musicPlaying = false;
+            } else {
+                audioFrame.src = "https://www.youtube.com/embed/2Vv-BfVoq4g?autoplay=1&loop=1&playlist=2Vv-BfVoq4g";
+                ctrl.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+                musicPlaying = true;
+            }
+        }
+
+        // --- FLOATING BACKGROUND HEARTS ---
+        function createFloatingDecor() {
+            const container = document.getElementById('bgDecor');
+            for(let i=0; i<25; i++) {
+                const heart = document.createElement('i');
+                heart.className = 'fa-solid fa-heart floating-heart';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = (Math.random() * 4 + 6) + 's';
+                heart.style.animationDelay = Math.random() * 5 + 's';
+                heart.style.fontSize = (Math.random() * 15 + 15) + 'px';
+                container.appendChild(heart);
+            }
+        }
+        createFloatingDecor();
+
+        // --- QUIZ GAME DATA ---
+        const quizData = [
+            {
+                q: "Quiz 1: When was our first movie date? 🎬",
+                a: ["19th May 2019 🤔", "20th May 2019 🍿", "21st May 2019 ✨", "22nd May 2019 🎟️"],
+                correct: 2,
+                rightMsg: "Yes! 21st May it is! ❤️",
+                wrongMsg: "Ayyie! Wrong date! 😜"
+            },
+            {
+                q: "Quiz 2: What was I wearing on our movie date? 👗",
+                a: ["Black top which gets off shoulder and white jeans 🖤", "Red top with stripes and blue jeans 🛍️", "Greenish top with white jeans 🎨", "Black top of yes, or no with white jeans 💭"],
+                correct: 0,
+                rightMsg: "Bingo! You remembered the off-shoulder top! 😍",
+                wrongMsg: "Nope, guess again! 🤣"
+            },
+            {
+                q: "Quiz 3: When was the first time we found bunk from coaching? 🏃‍♂️",
+                a: ["Go to a cafe ☕", "Go to your house for Private meet 🏡", "Were staying at my house 🛋️", "It was during online classes 💻"],
+                correct: 0,
+                rightMsg: "Correct! We went straight to a cafe! 🎉",
+                wrongMsg: "Wrong! Focus, senior! 🤡"
+            },
+            {
